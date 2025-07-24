@@ -1,22 +1,29 @@
-import React from "react";
-// import "./App.css";
+import React, { useState } from "react";
 import NavBar from "./components/Navbar/NavBar";
-import { assets } from "./assets/frontend_assets/assets";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Cart from "./Pages/Cart/Cart";
 import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
+import Footer from "./components/Footer/Footer";
+import LoginPopup from "./components/login-popup/LoginPopup";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
-    <div className="app">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/order" element={<PlaceOrder />} />
-      </Routes>
-    </div>
+    <>
+      {isLogin ? <LoginPopup setIsLogin={setIsLogin} /> : <></>}
+
+      <div className="app">
+        <NavBar setIsLogin={setIsLogin} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<PlaceOrder />} />
+        </Routes>
+      </div>
+      <Footer />
+    </>
   );
 }
 
