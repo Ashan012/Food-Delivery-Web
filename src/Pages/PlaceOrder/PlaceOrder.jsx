@@ -1,6 +1,6 @@
 import React from "react";
 import "./PlaceOrder.css";
-import CartTotal from "../../components/CartTotal/CartTotal";
+import CartTotal from "../../components/CartTotal/CartTotal.jsx";
 
 const PlaceOrder = () => {
   return (
